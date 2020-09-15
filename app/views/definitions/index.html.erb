@@ -1,0 +1,25 @@
+
+<%= link_to 'Create New Definition', new_definition_path %>
+<h1>Listing Definitions</h1>
+
+<table>
+  <tr>
+    <th>Term</th>
+    <th>Body</th>
+    <th></th>
+  </tr>
+
+  <% @definitions.each do |definition| %>
+    <tr>
+      <td><%= definition.term %></td>
+      <td><%= definition.body %></td>
+      <td><%= link_to 'Show Definition', definition_path(definition) %></td>
+      <td><%= link_to 'Edit Definition', edit_definition_path(definition) %></td>
+      <td><%= link_to 'Destroy', definition_path(definition),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Back', welcome_index_path %>

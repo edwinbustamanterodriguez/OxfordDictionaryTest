@@ -1,0 +1,35 @@
+<h1>Edit Definition</h1>
+
+<%= form_with(model: @definition, local: true) do |form| %>
+
+  <% if @definition && @definition.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@definition.errors.count, "error") %> prohibited
+        this definition from being saved:
+      </h2>
+      <ul>
+        <% @definition.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :Term %><br>
+    <%= form.text_field :term %>
+  </p>
+
+  <p>
+    <%= form.label :Body %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', definitions_path %>
